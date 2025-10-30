@@ -10,21 +10,21 @@ The following assets should be placed in this directory:
 - `teaser_image.jpg` - Main teaser image for the paper
 - `teaser_video.mp4` - Main teaser video for the paper
 
-### Section 1: Approach Overview
-- `section1_video1.mp4` - Manifold Learning Process
-- `section1_video2.mp4` - Object Projection
+### Task 1: Nut Threading
+- `nut_vanilla.mp4` - vanilla DP nut trial compilation
+- `nut_gomp.mp4` - gomp DP nut trial compilation
 
-### Section 2: Manipulation Results
-- `section2_video1.mp4` - Pick and Place Tasks
-- `section2_video2.mp4` - Grasping Demonstrations
+### Task 2: Peg Insertion
+- `peg_vanilla.mp4` - vanilla DP peg trial compilation
+- `peg_gomp.mp4` - gomp DP peg trial compilation
 
-### Section 3: Generalization Experiments
-- `section3_video1.mp4` - Novel Object Manipulation
-- `section3_video2.mp4` - Cross-Domain Transfer
+### Task 3: Battery Cover Placement
+- `cover_vanilla.mp4` - vanilla DP cover trial compilation
+- `cover_gomp.mp4` - gomp DP cover trial compilation
 
-### Section 4: Ablation Studies
-- `section4_video1.mp4` - Component Analysis
-- `section4_video2.mp4` - Comparison with Baselines
+### Task 4: USB Insertion
+- `USB_vanilla.mp4` - vanilla DP USB trial compilation
+- `USB_gomp.mp4` - gomp DP USB trial compilation
 
 ## File Format Guidelines
 - Images: JPEG or PNG format
