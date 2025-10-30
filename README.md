@@ -1,2 +1,2 @@
-# gomp.github.io
-Source files for the Grasped Object Manifold Projection paper
+# GOMPsite
+Source files for the Grasped Object Manifold Projection website
