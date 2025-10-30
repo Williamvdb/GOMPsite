@@ -15,10 +15,10 @@
             <!-- Authors and Affiliations -->
             <div class="authors">
                 <p class="author-names">
-                    Author 1<sup>1</sup>, Author 2<sup>1,2</sup>, Author 3<sup>1</sup>
+                    William van den Bogert<sup>1</sup>, Gregory Linkowski<sup>2</sup>, Author 2<sup>1</sup>
                 </p>
                 <p class="affiliations">
-                    <sup>1</sup>Institution 1, <sup>2</sup>Institution 2
+                    <sup>1</sup>University of Michigan, <sup>2</sup>Ford Robotics & Automation Research
                 </p>
             </div>
 
@@ -53,90 +53,111 @@
             <section class="abstract-section">
                 <h2>Abstract</h2>
                 <p class="abstract-text">
-                    This paper presents GOMP (Grasped Object Manifold Projection), a novel approach for multimodal imitation learning of manipulation tasks. Our method leverages manifold projection techniques to learn robust manipulation policies that can generalize across different object shapes and grasping configurations. By projecting high-dimensional sensory inputs onto a learned object manifold, GOMP enables efficient learning from demonstrations while maintaining the ability to adapt to novel objects and scenarios. We demonstrate the effectiveness of our approach on a variety of manipulation tasks, showing significant improvements in both learning efficiency and generalization performance compared to existing methods.
+                    Imitation Learning (IL) holds great potential for learning repetitive manipulation tasks, such as those in industrial assembly. However, its effectiveness is often limited by insufficient trajectory precision due to compounding errors. In this paper, we introduce Grasped Object Manifold Projection (GOMP), an interactive method that mitigates these errors by constraining a non-rigidly grasped object to a lower-dimensional manifold. GOMP assumes a precise task in which a manipulator holds an object that may shift within the grasp in an observable manner and must be mated with a grounded part. Crucially, all GOMP enhancements are learned from the same expert dataset used to train the base IL policy, and are adjusted with an $n$-arm bandit-based interactive component. We show that this manifold constraint theoretically improves upon the well-known compounding error bound in IL literature. We demonstrate the framework on four precise assembly tasks using tactile feedback, and note that the approach remains modality-agnostic.
                 </p>
+            </section>
+
+            <!-- Section 0 -->
+            <section class="content-section">
+                <h2>Visualization of Grasped Object Manifold Projections</h2>
+                <div class="video-row">
+                    <div class="video-container">
+                        <video controls>
+                            <source src="assets/i_6.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <p class="video-caption">6 possible projections of object pose trajectories from expert demonstrations of nut threading. Each projection has a different number of degrees of freedom. GOMP defines a set of manifolds on which to project object pose trajectories, then interactively selects the best manifold for the task from this set.</p>
+                    </div>
+                    <div class="video-container">
+                        <video controls>
+                            <source src="assets/live_proj.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <p class="video-caption">Visualization of current object pose, desired object pose from Vanilla Diffusion Policy, and desired object pose from Diffusion Policy + GOMP</p>
+                    </div>
+                </div>
             </section>
 
             <!-- Section 1 -->
             <section class="content-section">
-                <h2>Approach Overview</h2>
+                <h2>Task 1: Nut Threading</h2>
                 <div class="video-row">
                     <div class="video-container">
                         <video controls>
-                            <source src="assets/section1_video1.mp4" type="video/mp4">
+                            <source src="assets/nut_vanilla.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
-                        <p class="video-caption">Manifold Learning Process</p>
+                        <p class="video-caption">Vanilla Diffusion Policy</p>
                     </div>
                     <div class="video-container">
                         <video controls>
-                            <source src="assets/section1_video2.mp4" type="video/mp4">
+                            <source src="assets/nut_gomp.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
-                        <p class="video-caption">Object Projection</p>
+                        <p class="video-caption">GOMP-enhanced Diffusion Policy</p>
                     </div>
                 </div>
             </section>
 
             <!-- Section 2 -->
             <section class="content-section">
-                <h2>Manipulation Results</h2>
+                <h2>Task 2: Tight Hexagonal Peg Insertion</h2>
                 <div class="video-row">
                     <div class="video-container">
                         <video controls>
-                            <source src="assets/section2_video1.mp4" type="video/mp4">
+                            <source src="assets/peg_vanilla.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
-                        <p class="video-caption">Pick and Place Tasks</p>
+                        <p class="video-caption">Vanilla Diffusion Policy</p>
                     </div>
                     <div class="video-container">
                         <video controls>
-                            <source src="assets/section2_video2.mp4" type="video/mp4">
+                            <source src="assets/peg_gomp.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
-                        <p class="video-caption">Grasping Demonstrations</p>
+                        <p class="video-caption">GOMP-enhanced Diffusion Policy</p>
                     </div>
                 </div>
             </section>
 
             <!-- Section 3 -->
             <section class="content-section">
-                <h2>Generalization Experiments</h2>
+                <h2>Task 3: Remote Battery Cover Placement</h2>
                 <div class="video-row">
                     <div class="video-container">
                         <video controls>
-                            <source src="assets/section3_video1.mp4" type="video/mp4">
+                            <source src="assets/cover_vanilla.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
-                        <p class="video-caption">Novel Object Manipulation</p>
+                        <p class="video-caption">Vanilla Diffusion Policy</p>
                     </div>
                     <div class="video-container">
                         <video controls>
-                            <source src="assets/section3_video2.mp4" type="video/mp4">
+                            <source src="assets/cover_vanilla.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
-                        <p class="video-caption">Cross-Domain Transfer</p>
+                        <p class="video-caption">GOMP-enhanced Diffusion Policy</p>
                     </div>
                 </div>
             </section>
 
             <!-- Section 4 -->
             <section class="content-section">
-                <h2>Ablation Studies</h2>
+                <h2>Task 4: USB Insertion</h2>
                 <div class="video-row">
                     <div class="video-container">
                         <video controls>
-                            <source src="assets/section4_video1.mp4" type="video/mp4">
+                            <source src="assets/USB_vanilla.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
-                        <p class="video-caption">Component Analysis</p>
+                        <p class="video-caption">Vanilla Diffusion Policy</p>
                     </div>
                     <div class="video-container">
                         <video controls>
-                            <source src="assets/section4_video2.mp4" type="video/mp4">
+                            <source src="assets/USB_gomp.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
-                        <p class="video-caption">Comparison with Baselines</p>
+                        <p class="video-caption">GOMP-enhanced Diffusion Policy</p>
                     </div>
                 </div>
             </section>
@@ -146,16 +167,16 @@
                 <h2>BibTeX</h2>
                 <pre class="bibtex-code"><code>@article{gomp2024,
   title={GOMP: Grasped Object Manifold Projection for Multimodal Imitation Learning of Manipulation},
-  author={Author1, First and Author2, Second and Author3, Third},
-  journal={Conference/Journal Name},
-  year={2024}
+  author={van den Bogert, William and Linkowski, Gregory and Fazeli, Nima},
+  journal={arXiv},
+  year={2025}
 }</code></pre>
             </section>
         </main>
 
         <!-- Footer -->
         <footer>
-            <p>&copy; 2024 GOMP Project. All rights reserved.</p>
+            <p>&copy; GOMP. All rights reserved.</p>
         </footer>
     </div>
 </body>
