@@ -7,7 +7,7 @@ This directory contains media assets for the GOMP GitHub Pages website.
 The following assets should be placed in this directory:
 
 ### Main Media Section
-- `teaser_image.jpg` - Main teaser image for the paper
+- `teaser_image.png` - Main teaser image for the paper
 - `teaser_video.mp4` - Main teaser video for the paper
 
 ### Task 1: Nut Threading
