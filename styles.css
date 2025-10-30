@@ -242,7 +242,10 @@ footer {
         flex-direction: column;
     }
 
-    .abstract-section,
+    .abstract-section {
+        font-size: 1.5em;
+    }
+
     .content-section h2 {
         font-size: 1.5em;
     }
