@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
     videos.forEach(function(video) {
         // Check if this video uses compilation.mp4 (which is already 2x speed)
         const source = video.querySelector('source');
-        const isCompilation = source && source.src.includes('compilation.mp4');
+        const isCompilation = source && source.src.includes('compilation2x.mp4');
         const displayMultiplier = isCompilation ? 2 : 1;
         
         // Create a container for the speed control
