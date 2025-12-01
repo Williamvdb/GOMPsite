@@ -6,6 +6,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const videos = document.querySelectorAll('video');
     
     videos.forEach(function(video) {
+        // Check if this video uses compilation.mp4 (which is already 2x speed)
+        const source = video.querySelector('source');
+        const isCompilation = source && source.src.includes('compilation.mp4');
+        const displayMultiplier = isCompilation ? 2 : 1;
+        
         // Create a container for the speed control
         const speedControlContainer = document.createElement('div');
         speedControlContainer.className = 'video-speed-control';
@@ -26,13 +31,14 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Create value display
         const valueDisplay = document.createElement('span');
-        valueDisplay.textContent = '1x';
+        valueDisplay.textContent = (1 * displayMultiplier) + 'x';
         valueDisplay.className = 'speed-value';
         
         // Add event listener to update video playback rate
         slider.addEventListener('input', function() {
             video.playbackRate = parseFloat(slider.value);
-            valueDisplay.textContent = slider.value + 'x';
+            // For compilation.mp4, display 2x the actual speed since the video is already 2x
+            valueDisplay.textContent = (parseFloat(slider.value) * displayMultiplier) + 'x';
         });
         
         // Assemble the control elements
